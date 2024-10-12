@@ -9,7 +9,7 @@ dxs, dys = [-1, 1, 0, 0], [0, 0, -1, 1]
 # 종료 조건: 주위에 갈 곳이 없을 때
 
 def in_range(x, y):
-    return 0<x and x<m and y>0 and y<n
+    return 0<x and x<=n and y>0 and y<=n
 
 curr_value = a[curr_x][curr_y]
 
