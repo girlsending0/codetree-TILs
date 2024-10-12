@@ -1,18 +1,24 @@
 n, curr_x, curr_y = tuple(map(int, input().split()))
-a = [[0] * n]
+a = [[0] * (n+1)]
 for _ in range(n):
     a.append([0] + list(map(int, input().split())))
 
-dxs, dys = [0,0,-1,1], [1,-1,0,0]
+dxs, dys = [-1, 1, 0, 0], [0, 0, -1, 1]
 
 # 종료 조건: 주위에 갈 곳이 없을 때
 
-curr_value = n[curr_x][curr_y]
+def in_range(x, y):
+    return 0<x and x<n and y>0 and y<n
+
+curr_value = a[curr_x][curr_y]
+
 search_num=0
 while search_num < 5:
+    curr_value = a[curr_x][curr_y]
+    print(curr_value, end=" ")
     for dx, dy in zip(dxs, dys):
-        if curr_value < n[curr_x+dx][curr_y+dy]:
-            print(n[curr_x+dx][curr_y+dy], end=" ")
+        if in_range(curr_x+dx, curr_y+dy) and (curr_value < a[curr_x+dx][curr_y+dy]):
+            # print(a[curr_x+dx][curr_y+dy], end=" ")
             curr_x, curr_y = curr_x+dx, curr_y+dy
             break
         else:
