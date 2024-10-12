@@ -13,13 +13,13 @@ def in_range(x, y):
 curr_value = a[curr_x][curr_y]
 
 search_num=0
-while search_num < 5:
+while search_num < 4:
     curr_value = a[curr_x][curr_y]
     print(curr_value, end=" ")
     for dx, dy in zip(dxs, dys):
         if in_range(curr_x+dx, curr_y+dy) and (curr_value < a[curr_x+dx][curr_y+dy]):
-            # print(a[curr_x+dx][curr_y+dy], end=" ")
             curr_x, curr_y = curr_x+dx, curr_y+dy
+            search_num=0
             break
         else:
             search_num+=1
